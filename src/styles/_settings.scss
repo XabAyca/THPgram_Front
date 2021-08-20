@@ -12,6 +12,8 @@ $secondary-color-dark: #0B7A75;
 $third-color-dark:#D7C9AA;
 $background-color-dark:transparent;
 
+$phone-viewport:800px;
+
 :root{
   --primary-color: #{$primary-color};
   --secondary-color:#{$secondary-color};
@@ -24,6 +26,10 @@ $background-color-dark:transparent;
   --secondary-color:#{$secondary-color};
   --third-color:#{$third-color};
   --background-color:#{$background-color};  
+}
+
+@mixin phone {
+  @media (max-width: $phone-viewport) { @content; }
 }
 
 *{
