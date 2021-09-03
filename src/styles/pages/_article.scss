@@ -1,0 +1,25 @@
+.article{
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+
+  .articles{
+    margin:0 20px;
+    display: flex;
+    flex-direction: row;
+
+  .comments{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 15px;
+
+    .delete{
+      cursor: pointer;
+      color: red;
+    }
+  }
+  }
+
+
+}

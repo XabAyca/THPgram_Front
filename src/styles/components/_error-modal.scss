@@ -1,0 +1,21 @@
+.error-modal{
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 5px 20px;
+  text-align: center;
+  border:1px solid red;
+  background-color: rgba(182, 10, 10, 0.377);
+  color: red;
+  top:10px;
+  right: 10px;
+  transition: all .5s;
+  display: block;
+
+  i{
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}

@@ -1,10 +1,26 @@
+import Cookies from 'js-cookie';
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import { useSelector } from 'react-redux';
+import NotFound from './pages/NotFound';
+import Article from './pages/Article';
 
 const App = () => {
+  const register = useSelector((state)=>state.register)
+  const login = useSelector((state)=>state.login)
+
+  const isAuth = () => {
+    return (
+      register.register === '' &&
+      login.login === '' &&
+      Cookies.get('Token') === undefined ? false : true)
+  };
 
 
+  console.log(register.register);
   //Before install PWA
   let deferredPrompt
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -52,7 +68,19 @@ const App = () => {
 
   return (
     <Switch>
-      <Route path='/' component={Home}/>
+      <Route exact path="/">
+        {isAuth() ? <Home /> : <Redirect to="/login" />}
+      </Route>
+      <Route path="/login">
+        {isAuth() ? <Redirect to="/" /> : <Login />}
+      </Route>
+      <Route path="/register">
+        {isAuth() ? <Redirect to="/" /> : <Register />}
+      </Route>
+      <Route path="/article/:id">
+        {isAuth() ? <Article /> : <Redirect to='/login'/>}
+      </Route>
+      <Route path="/" component={NotFound} />
     </Switch>
   );
 };

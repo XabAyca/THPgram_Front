@@ -1,0 +1,22 @@
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px 50px;
+  background-color: #fff;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.719);
+
+  i{
+    font-size: 1.5rem;
+    cursor: pointer;
+    color:black;
+    margin:0 15px;
+    transition: all 400ms;
+
+    &:hover{
+      color: grey;
+      transform: scale(1.1);
+    }
+  }
+
+}
